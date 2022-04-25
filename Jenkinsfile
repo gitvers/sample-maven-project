@@ -20,10 +20,10 @@ pipeline{
         stage('Push Docker Image') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerpwd')]) {
-                    sh 'docker login -u patel244 -p ${dockerpwd}'
+                    withCredentials([string(credentialsId: 'patel244', variable: 'patel244')]) {
+                    sh 'docker login -u patel244 -p ${patel244}'
 }
-                    sh 'docker tag patel244/sample-for-jenkins-0.0.2 abc2345/myimage '
+                   # sh 'docker tag patel244/sample-for-jenkins-0.0.2 abc2345/myimage '
                     sh 'docker push patel244/sample-for-jenkins-0.0.2 '
                 }
             }
