@@ -13,7 +13,7 @@ pipeline{
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t patel244/sample-for-jenkins-0.0.2 .'
+                    sh 'docker build -t patel244/sample-for-jenkins-0.0.2.1 .'
                 }
             }
         }
@@ -23,8 +23,8 @@ pipeline{
                     withCredentials([string(credentialsId: 'patel244', variable: 'patel244')]) {
                     sh 'docker login -u patel244 -p ${patel244}'
 }
-                   # sh 'docker tag patel244/sample-for-jenkins-0.0.2 abc2345/myimage '
-                    sh 'docker push patel244/sample-for-jenkins-0.0.2 '
+                   // sh 'docker tag patel244/sample-for-jenkins-0.0.2.1 abc2345/myimage '
+                    sh 'docker push patel244/sample-for-jenkins-0.0.2.1 '
                 }
             }
         }
